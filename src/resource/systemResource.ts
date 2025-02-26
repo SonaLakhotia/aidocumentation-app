@@ -1,6 +1,6 @@
 import { Components } from "../admin/component-loader.js";
 import AISystem from "../model/AImodel.js";
-import { calculateTrustworthyScore } from "src/utils/trustworthiness.js";
+import { calculateTrustworthyScore } from "../utils/trustworthiness.js";
 import { stepsData } from "../utils/aisteps.js";
 
 export const AISystemResource = {
@@ -11,23 +11,7 @@ export const AISystemResource = {
       "version_name",
       "intended_purpose",
       "intended_users",
-      "ml_models",  
-      "used_datasets", 
     ],
-    properties: {
-      ml_models: {
-        type: "reference",
-        reference: "ModelDocumentation",
-        isArray: true, 
-        label: "ML Models Used",
-      },
-      used_datasets: {
-        type: "reference",
-        reference: "DatasetCard", 
-        isArray: true,
-        label: "Datasets Used",
-      },
-    },
     actions: {
       new: {
         component: Components.AISystemForm,
