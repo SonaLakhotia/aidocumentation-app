@@ -8,8 +8,14 @@ export const DataResource = {
   resource: DatasetCard,
   options: {
     listProperties: ["name", "version_name", "license", "publisher", "transparencyScore"],
+    properties: {
+      transparencyScore: {
+        isVisible: { list: true, show: true, edit: false, filter: true }, 
+      },
+    },
     actions: {
       new: {
+        isAccessible: ({currentAdmin }) => currentAdmin?.role === "Admin",
         component: Components.DataForm,
         before: async (request) => {
           if (request.payload) {
@@ -30,6 +36,7 @@ export const DataResource = {
         },
       },
       edit: {
+        isAccessible: ({currentAdmin }) => currentAdmin.role === "Admin",
         before: async (request) => {
           if (request.payload) {
             console.log("Payload before updating:", JSON.stringify(request.payload, null, 2));
@@ -59,9 +66,10 @@ export const DataResource = {
           response.record.params.transparencyScore = score ? `${score}%` : "N/A";
           return response;
         },
-      },     
+      },
+      delete:{
+        isAccessible: ({currentAdmin }) => currentAdmin.role === "Admin",
+      }     
     },
   },
 };
-
-

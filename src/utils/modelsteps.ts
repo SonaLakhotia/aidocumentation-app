@@ -21,7 +21,9 @@ export const modelStepsData = [
     fields: [
       { key: "purpose_and_scope", label: "Purpose and Scope", description: "Intended use and applicable domains of the model.", type: "textarea" },
       { key: "intended_users", label: "Intended Users", description: "Target users and expected interactions with the model.", type: "textarea" },
-      { key: "operational_environment", label: "Operational Environment", description: "Technical deployment contexts of the model.", type: "textarea" }
+      { key: "operational_environment", label: "Operational Environment", description: "Technical deployment contexts of the model.", type: "textarea" },
+      { key: "input_specifications", label: "Input Specifications", description: "Input data format and type required by the model.", type: "textarea" },
+      { key: "output_specifications", label: "Output Specifications", description: "Formats and types of output produced by the model.", type: "textarea" }
     ]
   },
   {

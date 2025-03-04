@@ -7,8 +7,14 @@ export const MLModelResource = {
   resource: ModelDocumentation,
   options: {
     listProperties: ["model_name", "version_name", "purpose_and_scope", "transparencyScore"],
+    properties: {
+      transparencyScore: {
+        isVisible: { list: true, show: true, edit: false, filter: true }, 
+      },
+    },
     actions: {
       new: {
+        isAccessible: ({currentAdmin }) => currentAdmin?.role === "Admin",
         component: Components.MLForm,
         before: async (request) => {
           if (request.payload) {
@@ -30,6 +36,7 @@ export const MLModelResource = {
       },
       edit: 
       {
+        isAccessible: ({currentAdmin }) => currentAdmin?.role === "Admin",
         before: async (request) => {
           if (request.payload) {
             console.log("Payload before updating:", JSON.stringify(request.payload, null, 2));
@@ -58,7 +65,10 @@ export const MLModelResource = {
           response.record.params.transparencyScore = score ? `${score}%` : "N/A";
           return response;
         },
-      },     
+      },
+      delete:{
+        isAccessible: ({currentAdmin }) => currentAdmin?.role === "Admin",
+      }    
     },
   },
 };

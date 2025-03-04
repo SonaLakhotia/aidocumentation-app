@@ -12,8 +12,14 @@ export const AISystemResource = {
       "intended_purpose",
       "intended_users",
     ],
+    properties: {
+      transparencyScore: {
+        isVisible: { list: true, show: true, edit: false, filter: true }, 
+      },
+    },
     actions: {
       new: {
+        isAccessible: ({currentAdmin }) => currentAdmin?.role === "Admin",
         component: Components.AISystemForm,
         before: async (request) => {
           if (request.payload) {
@@ -36,6 +42,7 @@ export const AISystemResource = {
         },
       },
       edit: {
+        isAccessible: ({currentAdmin }) => currentAdmin?.role === "Admin",
         before: async (request) => {
           if (request.payload) {
             console.log("Payload before updating:", JSON.stringify(request.payload, null, 2));
@@ -49,6 +56,9 @@ export const AISystemResource = {
           return request;
         },
       },
+      delete: {
+        isAccessible: ({currentAdmin }) => currentAdmin?.role === "Admin",
+      }   
     },
   },
 };
