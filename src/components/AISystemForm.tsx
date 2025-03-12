@@ -28,7 +28,7 @@ const FormStep = ({ values, handleChange, stepFields, errors, options }) => (
             onChange={(selected) => handleChange(key, selected ? selected.value : "")}
             options={options[key] || []}
           />
-        ) : (
+        ) :(
           <Input name={key} value={values[key] || ""} onChange={(e) => handleChange(key, e.target.value)} type={type || "text"} width="100%" />
         )}
 
@@ -37,8 +37,6 @@ const FormStep = ({ values, handleChange, stepFields, errors, options }) => (
     ))}
   </Box>
 );
-
-
 
 const AISystemForm = ({ action }) => {
   const [formData, setFormData] = useState({});
@@ -90,7 +88,7 @@ const AISystemForm = ({ action }) => {
       [name]: value,
     }));
   };
-
+  
   const validateFields = () => {
     const newErrors = {};
 
