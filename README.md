@@ -33,8 +33,8 @@ This platform:
 ### 1. Clone the Repository
 
 ```bash
-git clone https://github.com/your-username/ai-doc-platform.git
-cd ai-doc-platform
+git clone https://github.com/SonaLakhotia/aidocumentation-app
+cd aidocumentation-app
 ```
 
 ### 2. Install Dependencies
