@@ -112,7 +112,7 @@ Use the following test credentials:
 
 ### Admin Access
 - **Email**: `admin@aol.com`  
-- **Password**: `ADMIN!`
+- **Password**: `Admin!`
 
 ### Contributor Access
 - **Email**: `abc@aol.com`  
